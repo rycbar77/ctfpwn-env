@@ -174,7 +174,7 @@ def _read_container_name():
 
 def _attach_interactive(name):
 
-    cmd = "docker exec -it {} '/bin/zsh'".format(
+    cmd = "docker exec -it {} '/bin/bash'".format(
             name,
         )
     ColorWrite.yellow(
@@ -262,7 +262,7 @@ def run_pwn(args):
             }
         running_container = container.run(
             'beswing/swpwn:{}'.format(ubuntu),
-            '/bin/zsh',
+            '/bin/bash',
             cap_add=['SYS_ADMIN', 'SYS_PTRACE'],
             security_opt=['seccomp:unconfined'],
             detach=True,
